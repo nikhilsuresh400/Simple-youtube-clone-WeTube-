@@ -1,3 +1,4 @@
+/* IMPORTING FONTS ( "ROBOTO", SANS-SERIF ) */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
@@ -5,48 +6,35 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 body {
 
-    background-color: #000;
+    background-color: #0f0f0f;
     color: #fff;
     min-height: 100vh;
     padding: 0 1rem;
 
     display: grid;
     grid-template-columns: 220px 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr;
     grid-template-areas: 
-    "navbar navbar"
-    "sidebar main"
-    "sidebar footer";
-}
+        "navbar navbar"
+        "sidebar main";
 
+        position: relative;
+}
 nav {
-
     grid-area: navbar;
-    position: sticky;
-    top: 0;
 }
-
 aside {
-
     grid-area: sidebar;
-    position: sticky;
-    top: 59.19px;
-    align-self: start;
-    height: calc(100vh - 59.19px);
 }
-
 main {
-
     grid-area: main;
 }
-
 footer {
-
     grid-area: footer;
 }
 
@@ -59,6 +47,11 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0.6rem 0.8rem;
+    height: 3.75rem;
+    position: sticky;
+    top: 0;
+    background-color: #0f0f0f;
+    z-index: 1;
 }
 
 .nav-logoArea {
@@ -149,14 +142,27 @@ nav {
 aside {
 
     padding: 0.6rem 0;
+    position: sticky;
+    height: calc(100vh - 3.75rem);
+    width: 220px;
+    left: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    transition: all 0.16s ease-in-out 0s;
 }
+
+aside:hover {
+
+    scrollbar-color: #9c9c9c transparent;
+}
+
 
 .sidebarDivIcon {
 
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    column-gap: 8px;
+    align-items: center;    
     column-gap: 1rem;
 }
 
@@ -186,3 +192,40 @@ aside img {
     border-radius: 50%;
 }
 
+/* CATEGORIES */
+
+.categoryWrapper {
+
+    padding: 0 1rem;
+    width: 100vw;
+    position: absolute;
+    top: 60px;
+    left: 220px;
+}
+
+.categoryContainer {
+
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    overflow-x: auto;
+    padding: 0.75rem 0 0.7rem;
+    scrollbar-width: none; /* Firefox */
+}
+
+.category-container::-webkit-scrollbar {
+    display: none; /* Chrome and others */
+}
+
+.categoryButton {
+
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.5rem;
+    background-color: #292929d8;
+    color: #fff;
+}
